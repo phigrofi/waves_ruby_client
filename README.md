@@ -1,5 +1,7 @@
 # WavesRubyClient
 
+[![Build Status](https://travis-ci.org/phigrofi/waves_ruby_client.svg?branch=master)](https://travis-ci.org/phigrofi/waves_ruby_client)
+
 With the waves ruby client gem, You can access some of the [Waves platform](https://wavesplatform.com/) API methods.
 
 It was mainly build to create orders and can be used for automatic trading algorithms.
