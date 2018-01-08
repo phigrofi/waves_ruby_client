@@ -28,8 +28,8 @@ The gem requires the following environment variables
 * WAVES_PRIVATE_KEY: your waves private key, necessary for signing requests
 * WAVES_ADDRESS: your waves address
 
-Optionally you can override the waves API URL ('https://nodes.wavesnodes.com') and
-the matcher public key ('7kPFrHDiGw1rCm7LPszuECwWYL3dMf6iMifLRDJQZMzy') by setting the following environement variables:
+Optionally you can override the waves API URL (https://nodes.wavesnodes.com) and
+the matcher public key (7kPFrHDiGw1rCm7LPszuECwWYL3dMf6iMifLRDJQZMzy) by setting the following environement variables:
 
 * WAVES_API_URL
 * WAVES_MATCHER_PUBLIC_KEY
