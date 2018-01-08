@@ -38,7 +38,7 @@ the matcher public key (7kPFrHDiGw1rCm7LPszuECwWYL3dMf6iMifLRDJQZMzy) by setting
 
 ### Order book
 
-Shows current the current order book
+Shows the current order book
 
 ```ruby
 book = WavesRubyClient::OrderBook.btc_waves
@@ -97,7 +97,7 @@ order.pending?
 ### Transaction
 
 WavesRubyClient can list unconfirmed transactions. This can be used to wait for
-the transaction of a filled order after placing the next order.
+the transaction of a filled order before placing the next order.
 
 ```ruby
 # order was filled
