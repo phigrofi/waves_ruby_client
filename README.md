@@ -30,11 +30,13 @@ The gem requires the following environment variables
 * WAVES_PRIVATE_KEY: your waves private key, necessary for signing requests
 * WAVES_ADDRESS: your waves address
 
+
 Optionally you can override the waves API URL (https://nodes.wavesnodes.com) and
 the matcher public key (7kPFrHDiGw1rCm7LPszuECwWYL3dMf6iMifLRDJQZMzy) by setting the following environement variables:
 
 * WAVES_API_URL
 * WAVES_MATCHER_PUBLIC_KEY
+
 
 ### Order book
 
@@ -112,6 +114,26 @@ Lists user's balances for waves and bitcoins.
 ```ruby
 WavesRubyClient::Wallet.balance
 => { waves: 5002.3, btc: 1200.3 }
+```
+
+### DataFeed
+
+#### Current price
+
+Returns the last traded price as a float number
+
+```ruby
+WavesRubyClient::DataFeed.current_price
+=> 0.000726
+```
+
+#### Trade history
+
+Returns a list of filled Orders representing the last n trades
+
+```ruby
+WavesRubyClient::DataFeed.trade_history(10)
+=> [<WavesRubyClient::Order:0x0055d4746715d0, ...]
 ```
 
 ## Development

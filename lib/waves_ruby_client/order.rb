@@ -8,6 +8,7 @@ module WavesRubyClient
     JSON_HEADERS = { 'Content-Type' => 'application/json', 'Accept' => 'application/json' }.freeze
 
     attr_accessor :type, :amount, :id, :timestamp, :status, :price
+    attr_accessor :confirmed, :buyer, :seller, :matcher
     attr_writer :filled
 
     # get all orders for WAVES_PUBLIC_KEY

@@ -11,6 +11,11 @@ module WavesRubyClient
       end
     end
 
+    def call_data_feed(path)
+      response = HTTParty.get(WavesRubyClient::DATA_FEED_URL + path)
+      JSON.parse(response.body)
+    end
+
     def call(path, method = :get, args = {})
       response = HTTParty.send(method, WavesRubyClient::API_URL + path, args)
       JSON.parse(response.body)

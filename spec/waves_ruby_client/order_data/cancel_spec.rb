@@ -24,7 +24,7 @@ describe WavesRubyClient::OrderData::Cancel do
       expect(subject.data_with_signature).to eq(
         orderId: '125987125',
         sender: 'FJuErRxhV9JaFUwcYLabFK5ENvDRfyJbRz8FeVfYpBLn',
-        signature:       '3V4DgsG6BBGJmpA4FawFJwdMF8iv5bd5WSAUQqdyEAQCPPcdhq6W1MeANKhDK1LEhyt7wp7ghtZbFmsdvyupKWtc'
+        signature: '3V4DgsG6BBGJmpA4FawFJwdMF8iv5bd5WSAUQqdyEAQCPPcdhq6W1MeANKhDK1LEhyt7wp7ghtZbFmsdvyupKWtc'
       )
     end
   end

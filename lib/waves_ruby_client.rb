@@ -17,6 +17,7 @@ require 'waves_ruby_client/version'
 require 'waves_ruby_client/asset'
 require 'waves_ruby_client/conversion'
 require 'waves_ruby_client/api'
+require 'waves_ruby_client/data_feed'
 require 'waves_ruby_client/order_book'
 require 'waves_ruby_client/order_data/place'
 require 'waves_ruby_client/order_data/cancel'
@@ -32,6 +33,7 @@ module WavesRubyClient
   API_URL = ENV['WAVES_API_URL'] || 'https://nodes.wavesnodes.com'
   MATCHER_PUBLIC_KEY = ENV['WAVES_MATCHER_PUBLIC_KEY'] ||
                        '7kPFrHDiGw1rCm7LPszuECwWYL3dMf6iMifLRDJQZMzy'
+  DATA_FEED_URL = 'http://marketdata.wavesplatform.com/api'
 
   BTC_ASSET_ID = '8LQW8f7P5d5PZM7GtZEBgaqRPGSzS3DfPuiXrURJ4AJS'
   WAVES_ASSET_ID = 'WAVES'
