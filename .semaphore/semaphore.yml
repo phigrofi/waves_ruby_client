@@ -1,0 +1,31 @@
+version: v1.0
+name: Waves Ruby Client
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+blocks:
+  - name: Bundle
+    task:
+      jobs:
+      - name: bundle install and cache
+        commands:
+          - checkout
+          - cache restore bundle-$(checksum Gemfile.lock)
+          - bundle install --deployment
+          - cache store bundle-$(checksum Gemfile.lock) vendor/bundle
+
+  - name: Tests
+    task:
+      prologue:
+        commands:
+          - checkout
+          - cache restore bundle-$(checksum Gemfile.lock)
+      env_vars:
+        - name: BUNDLE_PATH
+          value: vendor/bundle
+      jobs:
+        - name: RSpec
+          commands:
+            - bundle exec rspec
