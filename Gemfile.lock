@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    waves_ruby_client (0.1.3)
+    waves_ruby_client (0.1.4)
       activemodel
       activesupport
       httparty

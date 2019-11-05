@@ -30,7 +30,7 @@ module WavesRubyClient
   WAVES_PUBLIC_KEY = ENV['WAVES_PUBLIC_KEY']
   WAVES_PRIVATE_KEY = ENV['WAVES_PRIVATE_KEY']
   WAVES_ADDRESS = ENV['WAVES_ADDRESS']
-  API_URL = ENV['WAVES_API_URL'] || 'https://nodes.wavesnodes.com'
+  API_URL = ENV['WAVES_API_URL'] || 'https://matcher.wavesplatform.com'
   MATCHER_PUBLIC_KEY = ENV['WAVES_MATCHER_PUBLIC_KEY'] ||
                        '7kPFrHDiGw1rCm7LPszuECwWYL3dMf6iMifLRDJQZMzy'
   DATA_FEED_URL = 'https://api.wavesplatform.com/v0'
