@@ -18,7 +18,7 @@ describe WavesRubyClient::DataFeed do
   describe '.trade_history' do
     it 'returns the trade history' do
       expect(described_class.trade_history(1).first.price).to eq(0.0007)
-      expect(described_class.trade_history(1).first.timestamp).to eq(1_516_265_603)
+      expect(described_class.trade_history(1).first.timestamp.to_i).to eq(1_516_265_603)
     end
   end
 end

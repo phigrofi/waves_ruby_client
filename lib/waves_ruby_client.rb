@@ -30,10 +30,12 @@ module WavesRubyClient
   WAVES_PUBLIC_KEY = ENV['WAVES_PUBLIC_KEY']
   WAVES_PRIVATE_KEY = ENV['WAVES_PRIVATE_KEY']
   WAVES_ADDRESS = ENV['WAVES_ADDRESS']
-  API_URL = ENV['WAVES_API_URL'] || 'https://matcher.wavesplatform.com'
-  MATCHER_PUBLIC_KEY = ENV['WAVES_MATCHER_PUBLIC_KEY'] ||
-                       '7kPFrHDiGw1rCm7LPszuECwWYL3dMf6iMifLRDJQZMzy'
-  DATA_FEED_URL = 'https://api.wavesplatform.com/v0'
+
+  DATA_FEED_URL = 'https://marketdata.wavesplatform.com/api'
+  NODE_URL = ENV['WAVES_NODE_URL'] || 'https://nodes.wavesnodes.com'
+  MATCHER_URL = ENV['WAVES_MATCHER_URL'] || 'https://matcher.waves.exchange'
+  MATCHER_ADDRESS = ENV['WAVES_MATCHER_ADDRESS'] || '3PEjHv3JGjcWNpYEEkif2w8NXV4kbhnoGgu'
+  MATCHER_PUBLIC_KEY = ENV['WAVES_MATCHER_PUBLIC_KEY'] || '9cpfKN9suPNvfeUNphzxXMjcnn974eme8ZhWUjaktzU5'
 
   BTC_ASSET_ID = '8LQW8f7P5d5PZM7GtZEBgaqRPGSzS3DfPuiXrURJ4AJS'
   WAVES_ASSET_ID = 'WAVES'
@@ -51,7 +53,7 @@ module WavesRubyClient
     tries ||= times
     yield
   rescue StandardError => e
-    sleep(5)
+    sleep(1)
     retry unless (tries -= 1).zero?
     raise e
   end

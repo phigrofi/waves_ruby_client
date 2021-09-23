@@ -26,17 +26,23 @@ Or install it yourself as:
 
 The gem requires the following environment variables
 
-* WAVES_PUBLIC_KEY: your waves public key
-* WAVES_PRIVATE_KEY: your waves private key, necessary for signing requests
-* WAVES_ADDRESS: your waves address
+- WAVES_PUBLIC_KEY: your waves public key
+- WAVES_PRIVATE_KEY: your waves private key, necessary for signing requests
+- WAVES_ADDRESS: your waves address
 
+Optionally you can override:
 
-Optionally you can override the waves API URL (https://nodes.wavesnodes.com) and
-the matcher public key (7kPFrHDiGw1rCm7LPszuECwWYL3dMf6iMifLRDJQZMzy) by setting the following environement variables:
+- the API URLs for the node (https://nodes.wavesnodes.com),
+- the matcher (https://matcher.waves.exchange),
+- matcher address (3PEjHv3JGjcWNpYEEkif2w8NXV4kbhnoGgu)
+- and the matcher public key (9cpfKN9suPNvfeUNphzxXMjcnn974eme8ZhWUjaktzU5)
 
-* WAVES_API_URL
-* WAVES_MATCHER_PUBLIC_KEY
+by setting the following environement variables:
 
+- WAVES_NODE_URL
+- WAVES_MATCHER_URL
+- WAVES_MATCHER_ADDRESS
+- WAVES_MATCHER_PUBLIC_KEY
 
 ### Order book
 
@@ -55,16 +61,17 @@ book.asks
 
 An Order object has the following attributes:
 
-* id
-* price
-* amount
-* timestamp
-* type (sell|buy)
-* status (Accepted|PartiallyFilled|Filled|NotFound|Cancelled)
+- id
+- price
+- amount
+- timestamp
+- type (sell|buy)
+- status (Accepted|PartiallyFilled|Filled|NotFound|Cancelled)
 
 #### Get user orders
 
 All orders:
+
 ```ruby
 WavesRubyClient::Order.all
 ```
@@ -78,7 +85,7 @@ WavesRubyClient::Order.active
 #### Place/Cancel/Delete limit order
 
 ```ruby
-order = WavesRubyClient::Order.new(price: 0.0008, amount: 10)
+order = WavesRubyClient::Order.new(price: 0.0008, amount: 10, type: :buy)
 order.place # raises exception if not successful
 order.cancel
 order.delete
@@ -87,7 +94,7 @@ order.delete
 #### Order status
 
 ```ruby
-order = WavesRubyClient::Order.new(price: 0.0008, amount: 10)
+order = WavesRubyClient::Order.new(price: 0.0008, amount: 10, type: :buy)
 order.place
 order.refresh_status
 order.status
@@ -112,8 +119,11 @@ sleep(10) while WavesRubyClient::Transaction.my_unconfirmed_exchanges.any?
 Lists user's balances for waves and bitcoins.
 
 ```ruby
-WavesRubyClient::Wallet.balance
-=> { waves: 5002.3, btc: 1200.3 }
+WavesRubyClient::Wallet.balance_btc
+=> 1200.3
+
+WavesRubyClient::Wallet.balance_waves
+=> 500.2
 ```
 
 ### DataFeed
@@ -147,6 +157,6 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 Bug reports and pull requests are welcome on GitHub at https://github.com/phigrofi/waves_ruby_client.
 This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
-
 ## License
+
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).

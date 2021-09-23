@@ -62,7 +62,7 @@ describe WavesRubyClient::Transaction do
     it "returns user's unconfirmed exchanges" do
       stub_const('WavesRubyClient::WAVES_PUBLIC_KEY',
                  '8BK5UovuwUnGn3DjPvpzC1eXdHmx19vyJoTDgwDsvKSR')
-      expect(WavesRubyClient::Api.instance).to receive(:call).and_return(transactions)
+      expect(WavesRubyClient::Api.instance).to receive(:call_node).and_return(transactions)
       expect(described_class.my_unconfirmed_exchanges).to eq([transaction1])
     end
   end

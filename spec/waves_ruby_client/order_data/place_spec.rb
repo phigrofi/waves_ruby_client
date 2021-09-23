@@ -40,7 +40,7 @@ describe WavesRubyClient::OrderData::Place do
         orderType: :sell,
         price: 50_000_000,
         senderPublicKey: 'FJuErRxhV9JaFUwcYLabFK5ENvDRfyJbRz8FeVfYpBLn',
-        signature: '5pzEHRrtfzH6mY64u8d1LX8rHufEvgnZ5YxGHFW33QUoi4Fv3ScWq7AnrEQMPaZjdR4uzoN9QHWoPTmZDVgpWUbw',
+        proofs: ['5pzEHRrtfzH6mY64u8d1LX8rHufEvgnZ5YxGHFW33QUoi4Fv3ScWq7AnrEQMPaZjdR4uzoN9QHWoPTmZDVgpWUbw'],
         timestamp: 1_489_592_282_029
       )
     end

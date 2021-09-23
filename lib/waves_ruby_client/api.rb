@@ -7,8 +7,13 @@ module WavesRubyClient
 
     def call_matcher(path, method = :get, args = {})
       WavesRubyClient.try_many_times do
-        call('/matcher' + path, method, args)
+        call("/matcher#{path}", method, args)
       end
+    end
+
+    def call_node(path)
+      response = HTTParty.get(WavesRubyClient::NODE_URL + path)
+      JSON.parse(response.body)
     end
 
     def call_data_feed(path)
@@ -17,7 +22,7 @@ module WavesRubyClient
     end
 
     def call(path, method = :get, args = {})
-      response = HTTParty.send(method, WavesRubyClient::API_URL + path, args)
+      response = HTTParty.send(method, WavesRubyClient::MATCHER_URL + path, args)
       JSON.parse(response.body)
     end
   end

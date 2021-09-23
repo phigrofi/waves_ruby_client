@@ -17,7 +17,7 @@ module WavesRubyClient
 
     def refresh
       order_book = WavesRubyClient::Api.instance.call_matcher(
-        "/orderbook/#{asset1.url_id}/#{asset2.url_id}"
+        "/orderbook/#{asset1.url_id}/#{asset2.url_id}#getOrderBook"
       )
       self.asks = order_book['asks'].map { |order| scale(order) }
       self.bids = order_book['bids'].map { |order| scale(order) }

@@ -13,7 +13,7 @@ module WavesRubyClient
       end
 
       def data_with_signature
-        data.merge(signature: signature)
+        data.merge(proofs: [signature])
       end
 
       private
