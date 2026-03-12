@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'json'
 require 'active_model'
 require 'active_support/core_ext/object/instance_variables'
 require 'active_support/duration'
@@ -31,7 +32,7 @@ module WavesRubyClient
   WAVES_PRIVATE_KEY = ENV['WAVES_PRIVATE_KEY']
   WAVES_ADDRESS = ENV['WAVES_ADDRESS']
 
-  DATA_FEED_URL = 'https://marketdata.wavesplatform.com/api'
+  DATA_FEED_URL = 'https://api.wavesplatform.com/v0'
   NODE_URL = ENV['WAVES_NODE_URL'] || 'https://nodes.wavesnodes.com'
   MATCHER_URL = ENV['WAVES_MATCHER_URL'] || 'https://matcher.waves.exchange'
   MATCHER_ADDRESS = ENV['WAVES_MATCHER_ADDRESS'] || '3PEjHv3JGjcWNpYEEkif2w8NXV4kbhnoGgu'

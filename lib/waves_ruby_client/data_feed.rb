@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module WavesRubyClient
   # query data feed
   class DataFeed
@@ -7,19 +9,16 @@ module WavesRubyClient
 
     # get history from data feed
     def self.trade_history(count = 10)
-      params = [
-        '/trades',
-        WavesRubyClient::AMOUNT_ASSET.url_id,
-        WavesRubyClient::PRICE_ASSET.url_id,
-        count
-      ]
+      path = "/transactions/exchange?amountAsset=#{WavesRubyClient::AMOUNT_ASSET.url_id}" \
+             "&priceAsset=#{WavesRubyClient::PRICE_ASSET.url_id}&limit=#{count}"
 
-      WavesRubyClient::Api.instance.call_data_feed(params.join('/')).map do |entry|
+      WavesRubyClient::Api.instance.call_data_feed(path)['data'].map do |entry|
+        data = entry['data']
         WavesRubyClient::Order.new(
-          id: entry['id'],
-          price: entry['price'].to_f,
-          timestamp: Time.at(entry['timestamp'] / 1000),
-          amount: entry['amount'].to_f
+          id: data['id'],
+          price: data['price'].to_f,
+          timestamp: Time.parse(data['timestamp']),
+          amount: data['amount'].to_f
         )
       end
     end
